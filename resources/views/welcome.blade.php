@@ -7,6 +7,21 @@
     <title>Accueil</title>
 </head>
 <body>
+    <header>
+        @auth
+            <div>
+                <p>Vous etes connecte {{ auth()->user()->name }}</p>
+                <form action="/logout" method="post">
+                    @csrf
+                    <button type="submit">logout</button>
+                </form>
+            </div>
+        @else
+            <p>
+                <a href="/login">Se connecter</a>
+            </p>
+        @endauth
+    </header>
     <ul>
         <li>
             <a href="{{ route('level.index') }}">Les niveaux</a>
@@ -19,6 +34,12 @@
         </li>
         <li>
             <a href="{{ route('classroom.index') }}">Les salles</a>
+        </li>
+        <li>
+            <a href="{{ route('role.index') }}">Les roles</a>
+        </li>
+        <li>
+            <a href="{{ route('user.index') }}">Les utilisateurs</a>
         </li>
     </ul>
 </body>
