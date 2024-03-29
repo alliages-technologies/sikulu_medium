@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\SerieRequest;
 use App\Models\Serie;
 
 class SerieController extends Controller
@@ -21,8 +21,8 @@ class SerieController extends Controller
         return view('admin.series.create');
     }
 
-    public function store(Request $request){
-        Serie::create($request->all());
+    public function store(SerieRequest $request){
+        Serie::create($request->validated());
         return redirect()->route('serie.index');
     }
 
@@ -30,8 +30,8 @@ class SerieController extends Controller
         return view('admin.series.edit', compact('serie'));
     }
 
-    public function update(Request $request, Serie $serie){
-        $serie->update($request->all());
+    public function update(SerieRequest $request, Serie $serie){
+        $serie->update($request->validated());
         return redirect()->route('serie.index');
     }
 

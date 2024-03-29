@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\LevelRequest;
 use App\Models\Level;
 
 class LevelController extends Controller
@@ -21,8 +21,8 @@ class LevelController extends Controller
         return view('admin.levels.create');
     }
 
-    public function store(Request $request){
-        Level::create($request->all());
+    public function store(LevelRequest $request){
+        Level::create($request->validated());
         return redirect()->route('level.index');
     }
 
@@ -30,8 +30,8 @@ class LevelController extends Controller
         return view('admin.levels.edit', compact('level'));
     }
 
-    public function update(Request $request, Level $level){
-        $level->update($request->all());
+    public function update(LevelRequest $request, Level $level){
+        $level->update($request->validated());
         return redirect()->route('level.index');
     }
 

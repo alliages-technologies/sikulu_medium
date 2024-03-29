@@ -2,8 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
-
-use Illuminate\Http\Request;
+use App\Http\Requests\Admin\ClassroomRequest;
 use App\Models\Classroom;
 use App\Models\Classe;
 
@@ -23,18 +22,18 @@ class ClassroomController extends Controller
         return view('admin.classrooms.create', compact('classes'));
     }
 
-    public function store(Request $request){
-        Classroom::create($request->all());
+    public function store(ClassroomRequest $request){
+        Classroom::create($request->validated());
         return redirect()->route('classroom.index');
     }
 
-    public function edit(Classroom $classroom){
+    public function edit(ClassroomRequest $classroom){
         $classes = Classe::all();
         return view('admin.classrooms.edit', compact(['classes', 'classroom']));
     }
 
-    public function update(Request $request, Classroom $classroom){
-        $classroom->update($request->all());
+    public function update(ClassroomRequest $request, Classroom $classroom){
+        $classroom->update($request->validated());
         return redirect()->route('classroom.index');
     }
 

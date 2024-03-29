@@ -14,4 +14,8 @@ class Classroom extends Model
     public function classe(){
         return $this->belongsTo(Classe::class, 'classe_id');
     }
+
+    public function site(){
+        return $this->belongsTo(Site::class,'site_id');
+    }
 }

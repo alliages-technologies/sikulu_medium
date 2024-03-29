@@ -18,10 +18,16 @@
                 @endforeach
             </select>
         </p>
+        @error('salle_id')
+            <div class="alert alert-danger">{{$message}}</div>
+        @enderror
         <p>
             <label for="name" class="form-label">Nom de la salle</label >
             <input type="text" name="name" value="{{ $classroom->name }}" class="form-control">
         </p>
+        @error('name')
+            <div class="alert alert-danger">{{$message}}</div>
+        @enderror
         <p>
             <label for="abbv" class="form-label">Abreviation de la salle</label>
             <input type="text" name="abbv" value="{{ $classroom->abbv }}" class="form-control">
