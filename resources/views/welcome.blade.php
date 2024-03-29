@@ -41,6 +41,12 @@
         <li>
             <a href="{{ route('user.index') }}">Les utilisateurs</a>
         </li>
+        <li>
+            <a href="{{ route('matter.index') }}">Les matieres</a>
+        </li>
+        <li>
+            <a href="{{ route('cours.index') }}">Les cours</a>
+        </li>
     </ul>
 </body>
 </html>

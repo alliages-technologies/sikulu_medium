@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('educations', function (Blueprint $table) {
+        Schema::create('cours', function (Blueprint $table) {
             $table->id();
             $table->integer('coefficient')->default(1);
             $table->foreignIdFor(Matter::class);
@@ -27,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('educations');
+        Schema::dropIfExists('cours');
     }
 };

@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\ClasseRequest;
 
 use Illuminate\Http\Request;
 use App\Models\Classe;
@@ -25,8 +27,8 @@ class ClasseController extends Controller
         return view('admin.classes.create', compact(['levels', 'series']));
     }
 
-    public function store(Request $request){
-        Classe::create($request->all());
+    public function store(ClasseRequest $request){
+        Classe::create($request->validated());
         return redirect()->route('classe.index');
     }
 
@@ -36,8 +38,8 @@ class ClasseController extends Controller
         return view('admin.classes.edit', compact(['levels', 'series', 'classe']));
     }
 
-    public function update(Request $request, Classe $classe){
-        $classe->update($request->all());
+    public function update(ClasseRequest $request, Classe $classe){
+        $classe->update($request->validated());
         return redirect()->route('classe.index');
     }
 

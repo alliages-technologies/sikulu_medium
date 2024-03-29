@@ -11,5 +11,11 @@
     <h2> {{$classe->level->name}} {{$classe->serie->name}} </h2>
     <p>Ou</p>
     <h3> {{$classe->level->abbv}} {{$classe->serie->abbv}} </h3>
+    <h4>Les cours</h4>
+    <ol>
+        @foreach ($classe->cours as $cours)
+            <li>{{ $cours->matter->name }} {{ $cours->coefficient }}</li>
+        @endforeach
+    </ol>
 </body>
 </html>

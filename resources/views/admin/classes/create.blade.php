@@ -17,6 +17,9 @@
                     <option value="{{ $level->id }}">{{ $level->name }}</option>
                 @endforeach
             </select>
+            @error('level_id')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </p>
         <p>
             <label for="serie_id" class="form-label">Choisissez une serie</label>
@@ -25,6 +28,9 @@
                     <option value="{{ $serie->id }}">{{ $serie->name }}</option>
                 @endforeach
             </select>
+            @error('serie_id')
+                <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </p>
         <p>
             <input type="submit" value="Enregistrer" class="form-control">
