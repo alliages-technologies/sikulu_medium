@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Roles</title>
+</head>
+<body>
+    <h1>Modification</h1>
+    <form action="{{ route('role.update', ['role'=>$role]) }}" method="post">
+        @csrf
+        <p>
+            <label for="name" class="form-label">Nom du role</label>
+            <input type="text" name="name" value="{{ $role->name }}" class="form-control">
+        </p>
+        <input type="submit" value="Enregistrer" class="form-control">
+    </form>
+</body>
+</html>

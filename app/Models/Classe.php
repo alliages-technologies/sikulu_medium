@@ -26,4 +26,9 @@ class Classe extends Model
     public function serie(){
         return $this->belongsTo(Serie::class, 'serie_id');
     }
+
+    public function cours(){
+        return $this->hasMany(Cours::class);
+    }
+    
 }
