@@ -1113,9 +1113,8 @@
             ],
             "time": "2023-12-03T19:50:20+00:00"
         },
-        { <<
-            <<
-            << < HEAD "name": "inertiajs/inertia-laravel",
+        {
+            "name": "inertiajs/inertia-laravel",
             "version": "v1.0.0",
             "source": {
                 "type": "git",
